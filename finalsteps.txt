@@ -1,0 +1,43 @@
+Step 1: Create Your Web Application
+mkdir myapp
+cd myapp
+npm init -y
+npm install express
+create index.js file code for it:-
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
+app.get('/', (req, res) => {
+res.send('Hello from my PaaS-deployed app!');
+});
+app.listen(port, () => {
+console.log(`App running on port ${port}`);
+});
+In package.json add
+"scripts": {
+"start": "node index.js"
+}
+Step 2: Push the App to GitHub
+1. Go to https://github.com and create a repository.
+2. Use these Git commands in your app folder:
+• git init
+• git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+• git add .
+• git commit -m "Initial commit"
+• git push -u origin master
+Step 3: Deploy to a Free PaaS Platform
+Using : Render
+• Go to: https://render.com
+• Sign up (free)
+• Click "New" > Web Service
+• Connect your GitHub repo
+• Choose:
+o Runtime: Node.js
+o Build command: npm install
+o Start command: node index.js
+o Free plan
+• Click Deploy
+Your app is deployed! Render gives a free custom domain like https://your-
+app.onrender.com
+• Open the provided URL
+
